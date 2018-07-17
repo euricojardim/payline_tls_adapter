@@ -1,7 +1,3 @@
-## Payline DOCS
-## https://payline.atlassian.net/wiki/spaces/DT/pages/24248460/Endpoints
-##
-
 import datetime
 from requests import Session
 from requests.auth import HTTPBasicAuth  # or HTTPDigestAuth, or OAuth1, etc.
@@ -9,6 +5,9 @@ from zeep import Client
 from zeep.transports import Transport
 from zeep.helpers import serialize_object
 
+## Payline DOCS
+## https://payline.atlassian.net/wiki/spaces/DT/pages/24248460/Endpoints
+##
 
 # WSDL = '20180319.wsdl'
 # WSDL = 'https://homologation.payline.com/V4/services/WebPaymentAPI?wsdl'
@@ -58,4 +57,5 @@ def get_web_payment_details(merchant_id, access_key, token):
 
 	response = service.getWebPaymentDetails(version=4, token=token)
 	return serialize_object(response)
+
 

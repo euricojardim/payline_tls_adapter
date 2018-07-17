@@ -26,3 +26,19 @@ def do_web_payment():
 	# import pdb; pdb.set_trace()
 
 	return jsonify(response)
+
+@app.route('/get_web_payment_details', methods=['POST'])
+def get_web_payment_details():
+
+	merchant_id = request.form.get('merchant_id', '')
+	access_key = request.form.get('access_key', '')
+	token = request.form.get('token', '')
+
+	response = payline.get_web_payment_details(merchant_id, access_key, token)
+
+	# import pdb; pdb.set_trace()
+
+	return jsonify(response)	
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')	
